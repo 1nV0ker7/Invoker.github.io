@@ -89,55 +89,41 @@
 								<div class="inner">
 									<h2 class="major">Career Journey</h2>
 									<p>My professional path as a DevOps and Integration Engineer, showcasing key milestones and achievements.</p>
-									<div class="timeline">
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>September 2023</h3>
-												<p>Onboarded into Bristlecone as an Integration Engineer.</p>
+									<div class="timeline-container">
+										<button class="timeline-arrow left" onclick="scrollTimeline(-270)"><i class="fas fa-chevron-left"></i></button>
+										<div class="timeline">
+											<div class="timeline-item above">
+												<div class="timeline-content">
+													<h3>September 2023</h3>
+													<p>Onboarded into Company 1</p>
+												</div>
+											</div>
+											<div class="timeline-item below">
+												<div class="timeline-content">
+													<h3>December 2023</h3>
+													<p>Achievement 1 at Company 1</p>
+												</div>
+											</div>
+											<div class="timeline-item above">
+												<div class="timeline-content">
+													<h3>May 2024</h3>
+													<p>Onboarded to Project 2 at Company 1</p>
+												</div>
+											</div>
+											<div class="timeline-item below">
+												<div class="timeline-content">
+													<h3>June 2024</h3>
+													<p>Achievement 2 at Company 1</p>
+												</div>
+											</div>
+											<div class="timeline-item above">
+												<div class="timeline-content">
+													<h3>June 2024</h3>
+													<p>Achievement 2 at Company 1</p>
+												</div>
 											</div>
 										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>December 2023</h3>
-												<p>Onboarded to S2PO(SAP Spokes) Project, focusing on building ServiceNow Actions and Subflows.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>February 2024</h3>
-												<p>Received First SPOT Award for contributions in S2PO Project.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>April 2024</h3>
-												<p>Got assigned a SAP Ariba - specific Use Case for cXML Invoices in Pending Queue.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>July 2024</h3>
-												<p>Received another SPOT Award for S2PO Project and contributions in cXML Invoices use-case.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>August 2024</h3>
-												<p>Got Onboarded to MetLife Project, focusing on building actions & Subflows for SAP Ariba's Purchase Requisitions.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>September 2024</h3>
-												<p>Received another SPOT Award for contributions in the MetLife Project.</p>
-											</div>
-										</div>
-										<div class="timeline-item">
-											<div class="timeline-content">
-												<h3>October 2024</h3>
-												<p>Got Onboarded to Freshservice Project, focusing on building Workato Recipes and SAP SuccessFactors as the target application.</p>
-											</div>
-										</div>
+										<button class="timeline-arrow right" onclick="scrollTimeline(270)"><i class="fas fa-chevron-right"></i></button>
 									</div>
 								</div>
 							</section>
@@ -174,6 +160,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function scrollTimeline(amount) {
+					const timeline = document.querySelector('.timeline');
+					timeline.scrollBy({ left: amount, behavior: 'smooth' });
+				}
+			</script>
 
 	</body>
 </html>
