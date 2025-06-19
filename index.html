@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Your Name - DevOps Portfolio</title>
+		<title>Om Bayas - Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="DevOps Engineer portfolio showcasing projects in Docker, CI/CD, and ServiceNow integrations." />
@@ -40,8 +40,8 @@
 					<section id="banner">
 						<div class="inner">
 							<div class="logo"><span class="icon fa-gem"></span></div>
-							<h2>1nV0ker</h2>
-							<p>DevOps & Integration Engineer | Skilled in ServiceNow, Docker, CI/CD, and Java.</a></p>
+							<h2>Om Bayas</h2>
+							<p>DevOps & Integration Engineer | Skilled in ServiceNow, Workato, CI/CD, and Java.</a></p>
 						</div>
 					</section>
 
@@ -51,11 +51,11 @@
 						<!-- One -->
 							<section id="one" class="wrapper spotlight style1">
 								<div class="inner">
-									<a href="https://github.com/your-username/task-api" class="image"><img src="images/task-api-screenshot.jpg" alt="Task Management API Screenshot" /></a>
+									<a href="https://github.com/your-username/task-api" class="image"><img src="images/task-management-api.png" alt="Task Management API Screenshot" /></a>
 									<div class="content">
 										<h2 class="major">Task Management API</h2>
 										<p>Built a Java-based REST API for task management, containerized with Docker, and deployed using GitHub Actions CI/CD pipeline.</p>
-										<a href="https://github.com/your-username/task-api" class="special">View on GitHub</a>
+										<a href="https://github.com/1nV0ker7/task-management-api" class="special">View on GitHub</a>
 									</div>
 								</div>
 							</section>
@@ -88,7 +88,7 @@
 							<section id="four" class="wrapper alt style1">
 								<div class="inner">
 									<h2 class="major">Career Journey</h2>
-									<p>My professional path as a DevOps and Integration Engineer, showcasing key milestones and achievements.</p>
+									<p>My professional path as an Integration Engineer, showcasing key milestones and achievements.</p>
 									<div class="timeline-container">
 										<button class="timeline-arrow left" onclick="scrollTimeline(-270)"><i class="fas fa-chevron-left"></i></button>
 										<div class="timeline">
@@ -112,26 +112,32 @@
 											</div>
 											<div class="timeline-item below">
 												<div class="timeline-content">
-													<h3>June 2024</h3>
-													<p>Achievement 2 at Company 1</p>
+													<h3>July 2024</h3>
+													<p>MetLife Project: Developed actions & Subflows for SAP Ariba's Purchase Requisitions.</p>
 												</div>
 											</div>
 											<div class="timeline-item above">
 												<div class="timeline-content">
-													<h3>June 2024</h3>
-													<p>Achievement 2 at Company 1</p>
+													<h3>September 2024</h3>
+													<p>Received another SPOT Award for contributions in the MetLife Project.</p>
 												</div>
 											</div>
 											<div class="timeline-item below">
 												<div class="timeline-content">
-													<h3>June 2024</h3>
-													<p>Achievement 2 at Company 1</p>
+													<h3>November 2024</h3>
+													<p>Freshservice Project: Developed Workato Recipes for HRSD use cases for SAP SuccessFactors.</p>
 												</div>
 											</div>
 											<div class="timeline-item above">
 												<div class="timeline-content">
-													<h3>June 2024</h3>
-													<p>Achievement 2 at Company 1</p>
+													<h3>January 2025</h3>
+													<p>Freshservice Project: Developed a Custom Connector in Workato from scratch for Oracle HCM.</p>
+												</div>
+											</div>
+											<div class="timeline-item below">
+												<div class="timeline-content">
+													<h3>April 2025</h3>
+													<p>ERP Canvas Project: Resolved 5+ customer defects in the SAP Java Connector Code (JCo) application.</p>
 												</div>
 											</div>
 										</div>
@@ -147,13 +153,13 @@
 						<div class="inner">
 							<h2 class="major"> Contact Me</h2>
 							<p>Let's get in touch!</p>
-							<a href="mailto:your.email@gmail.com" class="button">Email Me</a>
+							<a href="mailto:om.bayas01@gmail.com" class="button">Email Me</a>
 							<p>
 							<ul class="contact">
-								<li class="icon solid fa-phone">1234 567 890 </li><br>
-								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/">LinkedIn</a></li><br>
-								<li class="icon brands fa-github"><a href="https://github.com/">GitHub</a></li><br>
-								<li class="icon solid fa-code"><a href="https://www.codechef.com/users/">CodeChef</a></li><br>
+								<li class="icon solid fa-phone">08275895474 </li><br>
+								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/om-bayas">LinkedIn</a></li><br>
+								<li class="icon brands fa-github"><a href="https://github.com/1nV0ker7/">GitHub</a></li><br>
+								<li class="icon solid fa-code"><a href="https://www.codechef.com/users/inv0ker">CodeChef</a></li><br>
 							</ul>
 							<a href="assets/resume.pdf" class = "button">Download Resume</a>
 							</p>
@@ -177,6 +183,23 @@
 					const timeline = document.querySelector('.timeline');
 					timeline.scrollBy({ left: amount, behavior: 'smooth' });
 				}
+				document.addEventListener('DOMContentLoaded', () => {
+					const menuLinks = document.querySelectorAll('#menu .links a');
+					menuLinks.forEach(link => {
+						link.addEventListener('click', (event) => {
+							event.preventDefault();
+							const targetId = link.getAttribute('href').substring(1);
+							if (targetId === 'banner') {
+								window.scrollTo({ top: 0, behavior: 'smooth' });
+							} else {
+								const targetSection = document.getElementById(targetId);
+								if (targetSection) {
+									targetSection.scrollIntoView({ behavior: 'smooth' });
+								}
+							}
+						});
+					});
+				});
 			</script>
 
 	</body>
