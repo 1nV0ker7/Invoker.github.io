@@ -1,32 +1,33 @@
 .timeline-container {
   position: relative;
   max-width: 100%;
-  padding: 1rem 30px; /* Reduced padding for smaller arrows */
-  overflow-y: hidden; /* Prevent vertical scrollbar */
+  padding: 1rem 30px;
+  overflow-y: hidden; 
+  overflow-x: hidden;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  height: 6px;
+  background-color: #007bff;
+  top: 50%;  
+  transform: translateY(-50%);
+  left: 0;
+  width: 10000px;
+  z-index: 0;
 }
 
 .timeline {
   display: flex;
   flex-direction: row;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; 
+  overflow-y: hidden; 
   position: relative;
   scroll-behavior: smooth;
-  height: 100%; /* Ensure timeline fits container */
+  height: 100%; 
   
 }
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  height: 6px;
-  background-color: #007bff;
-  top: 150px;  /* Adjust as per your preferred alignment */
-  left: 0;
-  right: 0;
-  z-index: 0;
-}
-
 
 .timeline-item {
   flex: 0 0 auto;
@@ -46,41 +47,72 @@
   border-radius: 50%;
   left: 50%;
   z-index: 1;
-  display: none;
+  transform: translateX(-50%);
+  /* display: none; */
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #007bff;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
 }
 
 .timeline-item:nth-child(odd) {
-  margin-bottom: 120px; /* Push it above the line */
+  margin-bottom: 120px; 
 }
 
 .timeline-item:nth-child(even) {
-  margin-top: 120px; /* Push it below the line */
+  margin-top: 120px; 
 }
 
 .timeline-item:nth-child(odd)::before {
-  bottom: -30px;
+  bottom: -10px;
 }
 
 .timeline-item:nth-child(even)::before {
-  top: -30px;
+  top: -10px;
+}
+
+.timeline-item:nth-child(odd)::after {
+  bottom: -10px; /* Start at dot */
+  height: 130px; /* Extend to bottom of textbox (120px margin + 10px) */
+}
+
+.timeline-item:nth-child(even)::after {
+  top: -10px; /* Start at dot */
+  height: 130px; /* Extend to top of textbox (120px margin + 10px) */
+}
+
+.timeline-item.above::after {
+  top: calc(100% - 40px); 
+  height: 50px; 
+}
+
+.timeline-item.below::after {
+  bottom: calc(100% - 40px); 
+  height: 50px; 
 }
 
 .timeline-item.above .timeline-content {
-  margin-bottom: 60px; /* Equal spacing below card */
+  margin-bottom: 60px; 
 }
 
 .timeline-item.below .timeline-content {
-  margin-top: 60px; /* Equal spacing above card */
+  margin-top: 60px; 
 }
 
 .timeline-content {
   padding: 1rem;
-  background: rgba(46, 56, 66, 0.9); /* Semi-transparent dark gray */
+  background: rgba(46, 56, 66, 0.9); 
   border: 1px solid #4a5568;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: #e2e8f0;
-  min-height: 50px; /* Consistent height to prevent overflow */
+  min-height: 50px; 
 }
 
 .timeline-content h3 {
@@ -103,14 +135,14 @@
   color: #e2e8f0;
   border: none;
   border-radius: 50%;
-  width: 65px;     /* Increased size for clarity */
+  width: 65px;     
   height: 65px;
   cursor: pointer;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.0rem; /* Adjust if needed */
+  font-size: 1.0rem; 
 }
 
 
@@ -123,28 +155,28 @@
 }
 
 .timeline-arrow:hover {
-  background: rgba(0, 86, 179, 0.7); /* Darker translucent on hover */
+  background: rgba(0, 86, 179, 0.7); 
 }
 
 @media (max-width: 768px) {
   .timeline-container {
     padding: 2rem 20px;
-    overflow-y: hidden; /* Reinforce no vertical scrollbar */
+    overflow-y: hidden; 
+  }
+
+  .timeline-container::before {
+    height: 100%;
+    width: 6px;
+    left: 20px;
+    top: 0;
+    transform: none; 
+    width: 6px; 
   }
 
   .timeline {
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: hidden;
-  }
-
-  .timeline::before {
-    height: 100%;
-    width: 6px;
-    left: 20px;
-    top: 0;
-    right: auto;
-    transform: none; /* Vertical line, no centering needed */
   }
 
   .timeline-item {
@@ -154,16 +186,32 @@
     text-align: left;
   }
 
-  .timeline-item.above::before,
-  .timeline-item.below::before {
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    margin: 0; 
+  }
+
+  .timeline-item:nth-child(odd)::before,
+  .timeline-item:nth-child(even)::before {
     left: 14px;
     top: 10px;
     transform: none;
   }
 
-  .timeline-item.above .timeline-content,
-  .timeline-item.below .timeline-content {
-    margin: 0;
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    width: 6px;
+    height: 20px; 
+    left: 17px; 
+    transform: none;
+  }
+
+  .timeline-item:nth-child(odd)::after {
+    top: calc(100% - 20px); 
+  }
+
+  .timeline-item:nth-child(even)::after {
+    bottom: calc(100% - 20px); 
   }
 
   .timeline-arrow {
